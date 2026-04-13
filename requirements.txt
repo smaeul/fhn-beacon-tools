@@ -1,3 +1,5 @@
+bleak
+cryptography
 plyvel
 pure-protobuf
 typing-extensions
