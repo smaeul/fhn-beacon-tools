@@ -1,5 +1,6 @@
 bleak
 cryptography
+fastecdsa
 plyvel
 pure-protobuf
 typing-extensions
