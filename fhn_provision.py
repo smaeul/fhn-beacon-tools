@@ -31,6 +31,8 @@ BEACON_ACTIONS_CHARACTERISTIC = "fe2c1238-8366-4814-8eb0-01de32100bea"
 KNOWN_ANTI_SPOOFING_PUBLIC_KEYS = {
     # Shenzhen Lunci Technology Co., Ltd - OTAG
     0x93cdaa: bytes.fromhex("13b31eabb6f1423b0e72cabd57d08b6045e283bf2c117f98b4f0984bedab924ae277cce0d212bd82a728ab9e631b05c78027e237fcbbd586d5e8e0ba406988fd"),
+    # Shenzhen Lunci Technology Co., Ltd - Loshall Tag
+    0xfb87bb: bytes.fromhex("28f87777f8d75399d42c3ddccd5f94bcd7609f94fce2521ac24640db34cbdca1f319be5b47320d8cca474b8b413bf524a7a73509b53a62438590360e72552264"),
 }
 
 
