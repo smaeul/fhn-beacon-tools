@@ -47,12 +47,12 @@ def main():
     args = parser.parse_args()
 
     with plyvel.DB(args.db_path) as db:
-        for key, value in db:
+        for key, value in sorted(db):
             item = NearbyScanFastPairDBItem.read_from(BytesIO(value))
             model_info = item.value.model_info
             print(f"    # {model_info.manufacturer} - {model_info.name}")
             print(
-                f'    {model_info.model_id:#x}: bytes.fromhex("{model_info.anti_spoofing_info.public_key.hex()}"),'
+                f'    {model_info.model_id:#08x}: bytes.fromhex("{model_info.anti_spoofing_info.public_key.hex()}"),'
             )
 
 
