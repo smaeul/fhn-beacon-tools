@@ -2,6 +2,7 @@ import asyncio
 import secrets
 
 from bleak import AdvertisementData, BLEDevice, BleakClient, BleakScanner
+from bleak.args.bluez import BlueZScannerArgs, OrPattern
 from collections import OrderedDict
 from collections.abc import Collection
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
@@ -158,7 +159,12 @@ KNOWN_FHN_BEACONS = [
 async def main():
     tracker = FHNTracker(KNOWN_FHN_BEACONS)
 
-    async with BleakScanner(tracker.match, [EDDYSTONE_SERVICE_UUID]) as scanner:
+    async with BleakScanner(
+        tracker.match,
+        [EDDYSTONE_SERVICE_UUID],
+        "passive",
+        bluez=BlueZScannerArgs(or_patterns=[OrPattern(0, 0x01, b"\x06")]),
+    ) as scanner:
         try:
             await asyncio.Event().wait()
         except asyncio.exceptions.CancelledError:
